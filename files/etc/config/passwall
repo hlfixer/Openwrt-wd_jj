@@ -10,13 +10,13 @@ config global
 	option localhost_tcp_proxy_mode 'chnroute'
 	option localhost_udp_proxy_mode 'chnroute'
 	option socks_enabled '1'
-	option dns_shunt 'smartdns'
-	option group_domestic 'cn'
-	option dns_mode 'udp'
-	option remote_dns '127.0.0.1:7913'
 	option filter_proxy_ipv6 '1'
-	option tcp_node 'nil'
+	option dns_shunt 'dnsmasq'
+	option dns_mode 'dns2tcp'
+	option remote_dns '8.8.8.8'
 	option enabled '0'
+	option tcp_node 'nil'
+	option chinadns_ng '1'
 
 config global_haproxy
 	option balancing_enable '0'
@@ -43,7 +43,6 @@ config global_other
 	option nodes_ping 'auto_ping tcping'
 
 config global_rules
-	option auto_update '0'
 	option chnlist_update '1'
 	option chnroute_update '1'
 	option chnroute6_update '1'
@@ -57,6 +56,9 @@ config global_rules
 	list chnlist_url 'https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/apple.china.conf'
 	list chnlist_url 'https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/google.china.conf'
 	option v2ray_location_asset '/usr/share/v2ray/'
+	option auto_update '1'
+	option week_update '0'
+	option time_update '0'
 
 config global_app
 	option v2ray_file '/usr/bin/v2ray'
